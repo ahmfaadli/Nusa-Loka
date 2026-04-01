@@ -1,181 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nusa Loka Coffee - Ngopi Asik, Rasa Autentik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-C7TAUXCb.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DxN-iqpc.css">
-</head>
-<body class="bg-white">
-  <div id="app">
-    <!-- Navigation -->
-    <nav class="bg-coffee-dark text-white sticky top-0 z-50 shadow-lg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center space-x-2">
-            <div class="w-10 h-10 bg-coffee-cream rounded-full flex items-center justify-center">
-              <span class="text-coffee-dark font-bold text-lg">☕</span>
-            </div>
-            <h1 class="font-display text-xl font-bold">Nusa Loka</h1>
-          </div>
-          <div class="flex items-center space-x-6">
-            <a href="#home" class="nav-link hover:text-coffee-cream transition">Home</a>
-            <a href="#products" class="nav-link hover:text-coffee-cream transition">Produk</a>
-            <button id="cart-btn" class="relative hover:text-coffee-cream transition">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
-              <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-gradient-to-br from-coffee-cream via-coffee-light to-coffee-cream py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6">
-            <h2 class="font-display text-5xl md:text-6xl text-coffee-dark leading-tight">
-              Ngopi Asik, <br/>Rasa Autentik
-            </h2>
-            <p class="text-lg text-coffee-brown">Nikmati kopi pilihan terbaik dari berbagai daerah di Indonesia dengan kualitas premium dan cita rasa yang autentik.</p>
-            <div class="flex space-x-4">
-              <button id="hero-cta" class="bg-coffee-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-coffee-brown transition transform hover:scale-105">
-                Lihat Produk
-              </button>
-              <button class="border-2 border-coffee-dark text-coffee-dark px-8 py-3 rounded-lg font-semibold hover:bg-coffee-dark hover:text-white transition">
-                Pelajari Lebih
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-center">
-            <img src="/images/Panas_bg.png" alt="Nusa Loka Coffee Cup" class="w-full max-w-md drop-shadow-xl hover:scale-105 transition transform duration-300">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="font-display text-4xl text-coffee-dark mb-4">Produk Pilihan</h2>
-          <p class="text-coffee-brown text-lg">Koleksi kopi terbaik kami dari seluruh nusantara</p>
-        </div>
-        <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Products will be loaded here by JavaScript -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Cart Modal -->
-    <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto">
-      <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
-          <div class="bg-coffee-dark text-white p-6 flex justify-between items-center">
-            <h3 class="text-2xl font-bold">Keranjang Belanja</h3>
-            <button id="close-cart" class="text-2xl">&times;</button>
-          </div>
-          <div id="cart-items" class="p-6 min-h-96">
-            <!-- Cart items will be displayed here -->
-          </div>
-          <div class="border-t border-gray-200 p-6">
-            <div class="flex justify-between items-center mb-4">
-              <span class="text-xl font-semibold text-coffee-dark">Total:</span>
-              <span id="cart-total" class="text-2xl font-bold text-coffee-dark">Rp 0</span>
-            </div>
-            <div class="space-y-3">
-              <button id="checkout-btn" class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition disabled:opacity-50 disabled:cursor-not-allowed">
-                Lanjut ke Checkout
-              </button>
-              <button id="continue-shopping" class="w-full border-2 border-coffee-dark text-coffee-dark py-3 rounded-lg font-semibold hover:bg-coffee-cream transition">
-                Lanjut Belanja
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Product Detail Modal -->
-    <div id="detail-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto">
-      <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
-          <div class="p-6">
-            <button id="close-detail" class="text-2xl float-right text-gray-500 hover:text-gray-700">&times;</button>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-              <div>
-                <img id="detail-image" src="" alt="" class="w-full rounded-lg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nusa Loka Coffee - Ngopi Asik, Rasa Autentik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-Cl2p7ltV.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BZ7rxLtn.css">
+  </head>
+  <body class="bg-white">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="bg-coffee-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-10 h-10 bg-coffee-cream rounded-full flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src="https://j.top4top.io/p_3737kdvzq1.png"
+                  alt="Logo Nusa Loka"
+                  class="w-full h-full object-cover"
+                />
               </div>
-              <div class="space-y-4">
-                <h2 id="detail-name" class="font-display text-3xl text-coffee-dark"></h2>
-                <p id="detail-price" class="text-2xl font-bold text-coffee-brown"></p>
-                <p id="detail-description" class="text-gray-600 leading-relaxed"></p>
-                <div class="flex items-center space-x-4">
-                  <input id="detail-quantity" type="number" min="1" value="1" class="border border-gray-300 rounded px-3 py-2 w-20">
-                  <button id="add-to-cart-detail" class="flex-1 bg-coffee-dark text-white py-2 rounded-lg font-semibold hover:bg-coffee-brown transition">
-                    Tambah ke Keranjang
-                  </button>
+              <h1 class="font-display text-xl font-bold">Nusa Loka</h1>
+            </div>
+            <div class="flex items-center space-x-6">
+              <a
+                href="#home"
+                class="nav-link hover:text-coffee-cream transition"
+                >Home</a
+              >
+              <a
+                href="#products"
+                class="nav-link hover:text-coffee-cream transition"
+                >Produk</a
+              >
+              <button
+                id="cart-btn"
+                class="relative hover:text-coffee-cream transition"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                  ></path>
+                </svg>
+                <span
+                  id="cart-count"
+                  class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                  >0</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="relative bg-gradient-to-br from-coffee-cream via-coffee-light to-coffee-cream py-20"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h2
+                class="font-display text-5xl md:text-6xl text-coffee-dark leading-tight"
+              >
+                Ngopi Asik, <br />Rasa Autentik
+              </h2>
+              <p class="text-lg text-coffee-brown">
+                Nikmati kopi pilihan terbaik dari berbagai daerah di Indonesia
+                dengan kualitas premium dan cita rasa yang autentik.
+              </p>
+              <div class="flex space-x-4">
+                <button
+                  id="hero-cta"
+                  class="bg-coffee-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-coffee-brown transition transform hover:scale-105"
+                >
+                  Lihat Produk
+                </button>
+                <button
+                  class="border-2 border-coffee-dark text-coffee-dark px-8 py-3 rounded-lg font-semibold hover:bg-coffee-dark hover:text-white transition"
+                >
+                  Pelajari Lebih
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <img
+                src="/images/Panas_bg.png"
+                alt="Nusa Loka Coffee Cup"
+                class="w-full max-w-md drop-shadow-xl hover:scale-105 transition transform duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="font-display text-4xl text-coffee-dark mb-4">
+              Produk Pilihan
+            </h2>
+            <p class="text-coffee-brown text-lg">
+              Koleksi kopi terbaik kami dari seluruh nusantara
+            </p>
+          </div>
+          <div
+            id="products-grid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Products will be loaded here by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Cart Modal -->
+      <div
+        id="cart-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto"
+      >
+        <div class="flex items-center justify-center min-h-screen p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
+            <div
+              class="bg-coffee-dark text-white p-6 flex justify-between items-center"
+            >
+              <h3 class="text-2xl font-bold">Keranjang Belanja</h3>
+              <button id="close-cart" class="text-2xl">&times;</button>
+            </div>
+            <div id="cart-items" class="p-6 min-h-96">
+              <!-- Cart items will be displayed here -->
+            </div>
+            <div class="border-t border-gray-200 p-6">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-semibold text-coffee-dark"
+                  >Total:</span
+                >
+                <span
+                  id="cart-total"
+                  class="text-2xl font-bold text-coffee-dark"
+                  >Rp 0</span
+                >
+              </div>
+              <div class="space-y-3">
+                <button
+                  id="checkout-btn"
+                  class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Lanjut ke Checkout
+                </button>
+                <button
+                  id="continue-shopping"
+                  class="w-full border-2 border-coffee-dark text-coffee-dark py-3 rounded-lg font-semibold hover:bg-coffee-cream transition"
+                >
+                  Lanjut Belanja
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Detail Modal -->
+      <div
+        id="detail-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto"
+      >
+        <div class="flex items-center justify-center min-h-screen p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
+            <div class="p-6">
+              <button
+                id="close-detail"
+                class="text-2xl float-right text-gray-500 hover:text-gray-700"
+              >
+                &times;
+              </button>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                  <img
+                    id="detail-image"
+                    src=""
+                    alt=""
+                    class="w-full rounded-lg"
+                  />
+                </div>
+                <div class="space-y-4">
+                  <h2
+                    id="detail-name"
+                    class="font-display text-3xl text-coffee-dark"
+                  ></h2>
+                  <p
+                    id="detail-price"
+                    class="text-2xl font-bold text-coffee-brown"
+                  ></p>
+                  <p
+                    id="detail-description"
+                    class="text-gray-600 leading-relaxed"
+                  ></p>
+                  <div class="flex items-center space-x-4">
+                    <input
+                      id="detail-quantity"
+                      type="number"
+                      min="1"
+                      value="1"
+                      class="border border-gray-300 rounded px-3 py-2 w-20"
+                    />
+                    <button
+                      id="add-to-cart-detail"
+                      class="flex-1 bg-coffee-dark text-white py-2 rounded-lg font-semibold hover:bg-coffee-brown transition"
+                    >
+                      Tambah ke Keranjang
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto">
-      <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
-          <div class="bg-coffee-dark text-white p-6 flex justify-between items-center">
-            <h3 class="text-2xl font-bold">Checkout</h3>
-            <button id="close-checkout" class="text-2xl">&times;</button>
-          </div>
-          <div class="p-6 space-y-6">
-            <div>
-              <h4 class="font-semibold text-coffee-dark mb-4">Informasi Pengiriman</h4>
-              <form id="checkout-form" class="space-y-4">
-                <input id="customer-name" type="text" placeholder="Nama Lengkap" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark" required>
-                <input id="customer-email" type="email" placeholder="Email" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark" required>
-                <input id="customer-phone" type="tel" placeholder="Nomor HP (62...)" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark" required>
-                <textarea id="customer-address" placeholder="Alamat Lengkap" rows="3" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark" required></textarea>
-              </form>
+      <!-- Checkout Modal -->
+      <div
+        id="checkout-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto"
+      >
+        <div class="flex items-center justify-center min-h-screen p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full">
+            <div
+              class="bg-coffee-dark text-white p-6 flex justify-between items-center"
+            >
+              <h3 class="text-2xl font-bold">Checkout</h3>
+              <button id="close-checkout" class="text-2xl">&times;</button>
             </div>
-            <div class="border-t border-gray-200 pt-6">
-              <h4 class="font-semibold text-coffee-dark mb-4">Ringkasan Pesanan</h4>
-              <div id="checkout-summary" class="space-y-2 mb-4"></div>
-              <div class="flex justify-between text-xl font-bold text-coffee-dark">
-                <span>Total:</span>
-                <span id="checkout-total">Rp 0</span>
+            <div class="p-6 space-y-6">
+              <div>
+                <h4 class="font-semibold text-coffee-dark mb-4">
+                  Informasi Pengiriman
+                </h4>
+                <form id="checkout-form" class="space-y-4">
+                  <input
+                    id="customer-name"
+                    type="text"
+                    placeholder="Nama Lengkap"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark"
+                    required
+                  />
+                  <input
+                    id="customer-email"
+                    type="email"
+                    placeholder="Email"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark"
+                    required
+                  />
+                  <input
+                    id="customer-phone"
+                    type="tel"
+                    placeholder="Nomor HP (62...)"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark"
+                    required
+                  />
+                  <textarea
+                    id="customer-address"
+                    placeholder="Alamat Lengkap"
+                    rows="3"
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-coffee-dark"
+                    required
+                  ></textarea>
+                </form>
               </div>
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-semibold text-coffee-dark mb-4">
+                  Ringkasan Pesanan
+                </h4>
+                <div id="checkout-summary" class="space-y-2 mb-4"></div>
+                <div
+                  class="flex justify-between text-xl font-bold text-coffee-dark"
+                >
+                  <span>Total:</span>
+                  <span id="checkout-total">Rp 0</span>
+                </div>
+              </div>
+              <button
+                id="confirm-order"
+                class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition"
+              >
+                Konfirmasi Pesanan
+              </button>
             </div>
-            <button id="confirm-order" class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition">
-              Konfirmasi Pesanan
-            </button>
           </div>
+        </div>
+      </div>
+
+      <!-- Success Modal -->
+      <div
+        id="success-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+      >
+        <div
+          class="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center space-y-6"
+        >
+          <div class="text-6xl">✓</div>
+          <h2 class="font-display text-2xl text-coffee-dark">
+            Pesanan Berhasil!
+          </h2>
+          <p class="text-gray-600">
+            Terima kasih telah berbelanja di Nusa Loka Coffee. Kami akan segera
+            memproses pesanan Anda.
+          </p>
+          <button
+            id="success-close"
+            class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition"
+          >
+            Kembali ke Beranda
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center space-y-6">
-        <div class="text-6xl">✓</div>
-        <h2 class="font-display text-2xl text-coffee-dark">Pesanan Berhasil!</h2>
-        <p class="text-gray-600">Terima kasih telah berbelanja di Nusa Loka Coffee. Kami akan segera memproses pesanan Anda.</p>
-        <button id="success-close" class="w-full bg-coffee-dark text-white py-3 rounded-lg font-semibold hover:bg-coffee-brown transition">
-          Kembali ke Beranda
-        </button>
-      </div>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>
