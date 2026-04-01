@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Nusa Loka</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img
+          src="https://j.top4top.io/p_3737kdvzq1.png"
+          alt="Logo Nusa Loka"
+          class="w-10 h-10 object-cover rounded-full"
+        />
+        <h1 class="text-2xl font-bold text-gray-800">Admin Nusa Loka</h1>
+      </div>
+    </nav>
+
+    <div class="flex mt-6 px-6 space-x-6">
+      <!-- SIDEBAR -->
+      <aside class="w-64 bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold mb-4">Menu</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li class="hover:bg-gray-100 p-2 rounded cursor-pointer">
+            Dashboard
+          </li>
+          <li class="hover:bg-gray-100 p-2 rounded cursor-pointer">Produk</li>
+          <li class="hover:bg-gray-100 p-2 rounded cursor-pointer">Pesanan</li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="flex-1">
+        <!-- FORM TAMBAH PRODUK -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h2 class="text-xl font-bold mb-4">Tambah Produk</h2>
+          <form id="product-form" class="space-y-4">
+            <input
+              type="text"
+              id="name"
+              placeholder="Nama Produk"
+              required
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-coffee-cream"
+            />
+            <input
+              type="number"
+              id="price"
+              placeholder="Harga"
+              required
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-coffee-cream"
+            />
+            <input
+              type="text"
+              id="image_url"
+              placeholder="URL Gambar"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-coffee-cream"
+            />
+            <input
+              type="text"
+              id="category"
+              placeholder="Kategori"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-coffee-cream"
+            />
+            <textarea
+              id="description"
+              placeholder="Deskripsi"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-coffee-cream"
+            ></textarea>
+            <button
+              type="submit"
+              class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition font-semibold"
+            >
+              Tambah Produk
+            </button>
+          </form>
+        </div>
+
+        <!-- DAFTAR PRODUK -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-xl font-bold mb-4">Daftar Produk</h2>
+          <div
+            id="product-list"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          ></div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/admin.js"></script>
+  </body>
+</html>

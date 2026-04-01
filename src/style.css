@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.product-card {
+  @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300;
+}
+
+.product-image {
+  @apply w-full h-64 object-cover hover:scale-110 transition-transform duration-300;
+}
+
+.product-badge {
+  @apply absolute top-3 right-3 bg-coffee-dark text-white px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+@media (max-width: 768px) {
+  .product-image {
+    @apply h-48;
+  }
+}
+
+.modal-overlay {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cart-item {
+  @apply flex items-center justify-between p-4 border-b border-gray-200 last:border-b-0;
+}
+
+.quantity-control {
+  @apply flex items-center space-x-2;
+}
+
+.quantity-control button {
+  @apply w-8 h-8 flex items-center justify-center border border-gray-300 rounded hover:bg-coffee-cream transition;
+}
+
+footer {
+  @apply bg-coffee-dark text-coffee-cream;
+}
+
+.footer-link {
+  @apply text-coffee-cream hover:text-white transition;
+}
